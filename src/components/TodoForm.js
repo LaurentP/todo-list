@@ -15,12 +15,12 @@ const TodoForm = ({ todos, setTodos }) => {
         setInputValue('')
     }
 
-    return <form onSubmit={e => handleSubmit(e)} className="row">
-        <div className="col">
-            <input type="text" name="todo" placeholder="Enter a todo" value={inputValue} onChange={e => handleChange(e)} className="form-control" />
+    return <form onSubmit={e => handleSubmit(e)}>
+        <div>
+            <input type="text" name="todo" placeholder="Enter a todo" value={inputValue} onChange={e => handleChange(e)} />
         </div>
-        <div className="col-auto">
-            <button type="submit" className="btn btn-primary">Add</button>
+        <div>
+            <button type="submit">Add</button>
         </div>
     </form>
 

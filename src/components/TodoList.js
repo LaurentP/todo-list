@@ -19,18 +19,21 @@ const TodoList = ({ todos, setTodos }) => {
         setTodos(newTodos)
     }
 
-    return <table className="my-4 table table-striped table-borderless">
+    return <table className="list">
         <tbody>
             {todos.map(todo => {
-                return <tr key={todo.id} className="row">
-                    <td className="col-auto align-middle">
-                        <input type="checkbox" name="done" checked={todo.done} onChange={e => handleChangeDone(e, todo.id)} className="form-check-input" />
+                return <tr key={todo.id}>
+                    <td>
+                        <label htmlFor={`done-${todo.id}`} className="checkbox-done">
+                            <input type="checkbox" name="done" id={`done-${todo.id}`} checked={todo.done} onChange={e => handleChangeDone(e, todo.id)} />
+                            <div className="icon"></div>
+                        </label>
                     </td>
-                    <td className={todo.done ? "col align-middle text-decoration-line-through" : "col align-middle"}>
+                    <td className={todo.done ? "text-done" : null}>
                         {todo.content}
                     </td>
-                    <td className="col-auto align-middle">
-                        <button onClick={() => handleClickDelete(todo.id)} className="btn btn-primary">Delete</button>
+                    <td>
+                        <button onClick={() => handleClickDelete(todo.id)} className="btn-delete"></button>
                     </td>
                 </tr>
             })}
